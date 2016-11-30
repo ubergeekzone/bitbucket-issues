@@ -1,29 +1,29 @@
 {
-  "name": "github-issues",
-  "version": "0.7.1",
-  "description": "GitHub issue tracking from within Atom.",
+  "name": "bitbucket-issues",
+  "version": "0.0.1",
+  "description": "Bitbucket issue tracking from within Atom.",
   "main": "index.coffee",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/baconscript/github-issues.git"
+    "url": "https://github.com/ubergeekzone/bitbucket-issues.git"
   },
   "keywords": [
-    "github",
+    "bitbucket",
     "issues",
     "atom"
   ],
-  "author": "Ryan Muller <ryan@muller.io>",
+  "author": "Amy Bridges <amy.bridges@invoate.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/baconscript/github-issues/issues"
+    "url": "https://github.com/ubergeekzone/bitbucket-issues/issues"
   },
   "engines": {
     "atom": ">=1.0"
   },
-  "homepage": "https://github.com/baconscript/github-issues",
+  "homepage": "https://github.com/ubergeekzone/bitbucket-issues",
   "dependencies": {
     "baconjs": "^0.7.22",
     "lodash": "^2.4.1",
