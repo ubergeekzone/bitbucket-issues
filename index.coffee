@@ -3,12 +3,12 @@ request = require 'request'
 
 request = request.defaults
   headers:
-    'User-Agent': 'r24y/github-issues'
+    'User-Agent': 'ubergeekzone/bitbucket-issues'
 
-GH_REGEX = /^(https:\/\/|git@)github\.com(\/|:)([-\w]+)\/([-\w]+)(\.git)?$/
+GH_REGEX = /^(https:\/\/|git@)bitbucket\.org(\/|:)([-\w]+)\/([-\w]+)(\.git)?$/
 
 issuesUrl = (info) ->
-  "https://api.github.com/repos/#{info.user}/#{info.repo}/issues?state=all"
+  "https://api.bitbucket.org/2.0/repositories/#{info.user}/#{info.repo}/issues"
 
 getOriginURL = -> atom.project.getRepositories()[0]?.getOriginURL() or null
 
