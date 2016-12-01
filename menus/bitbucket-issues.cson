@@ -1,0 +1,11 @@
+'menu': [
+  {
+    'label': 'Packages',
+    'submenu': [
+      'label': 'BitBucket'
+      'submenu': [
+        {'label':'Issues for this repo','command':'bitbucket-issues:list'}
+      ]
+    ]
+  }
+]
