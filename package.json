@@ -1,6 +1,6 @@
 {
   "name": "bitbucket-issues",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Bitbucket issue tracking from within Atom.",
   "main": "index.coffee",
   "scripts": {
