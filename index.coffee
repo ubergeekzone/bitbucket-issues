@@ -12,7 +12,7 @@ issuesUrl = (info) ->
 
 getOriginURL = -> atom.project.getRepositories()[0]?.getOriginURL() or null
 
-isGitHubRepo = ->
+isBitBucketRepo = ->
   u = getOriginURL()
   return false unless u
   m = u.match GH_REGEX
@@ -25,7 +25,7 @@ isGitHubRepo = ->
     false
 
 fetchIssues = (callback) ->
-  request issuesUrl(isGitHubRepo()), (err, resp, body) ->
+  request issuesUrl(isBitBucketRepo()), (err, resp, body) ->
     if err
       callback err
     else
@@ -40,16 +40,16 @@ module.exports =
   configDefaults:
     username: ''
   activate: ->
-    atom.commands.add 'atom-workspace', 'github-issues:list', ->
-      if isGitHubRepo()
-        atom.workspace.open 'github-issues://list'
+    atom.commands.add 'atom-workspace', 'bitbucket-issues:list', ->
+      if isBitBucketRepo()
+        atom.workspace.open 'bitbucket-issues://list'
       else
-        alert 'The current project does not appear to be a GitHub repo.'
+        alert 'The current project does not appear to be a BitBucket repo.'
     fetchIssues (err, issues) ->
       if err
         console.error err
-        alert 'Error opening issues. Is this a public GitHub project?'
+        alert 'Error opening issues. Is this a public BitBucket project?'
       atom.workspace.addOpener (uri) ->
-        return unless uri.match /^github-issues:/
+        return unless uri.match /^bitbucket-issues:/
         new GitIssueView
           issues: issues
