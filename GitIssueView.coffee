@@ -4,8 +4,8 @@ _ = require 'lodash'
 
 statusToInt = (issue) ->
   switch issue.state
-    when 'open' then 0
-    when 'closed' then 1
+    when 'new' then 0
+    when 'open' then 1
   2
 
 module.exports =
@@ -24,14 +24,14 @@ class GitIssueView extends View
     issueList = @issues
       .sort (a,b) ->
         return statusToInt(a) - statusToInt(b) if a.state isnt b.state
-        +a.number - +b.number
+        +a.id - +b.id
       .map (issue) ->
         """
         <h2 class="section-heading issue-#{issue.state}">
-          <a href="#{issue.html_url}">##{issue.number}: #{issue.title}</a>
+          <a href="#{issue.links.html.href}">##{issue.id}: #{issue.title}</a>
         </h2>
         <div>
-          #{(marked(issue.body || '')) or ''}
+          #{(marked(issue.content.raw || '')) or ''}
         </div>
         """
     if issueList.length

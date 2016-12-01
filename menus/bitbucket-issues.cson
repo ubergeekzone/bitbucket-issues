@@ -4,7 +4,7 @@
     'submenu': [
       'label': 'BitBucket'
       'submenu': [
-        {'label':'Issues for this repo','command':'bitbucket-issues:list'}
+        {'label':'Open/New Issues for this repo','command':'bitbucket-issues:list'}
       ]
     ]
   }
